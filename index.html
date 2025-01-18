@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Learning Tool - About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #D7C6A3, #F0E6B7); /* Gradient background */
+            color: #3e2723; /* Dark brown text */
+            overflow-x: hidden;
+            box-sizing: border-box;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Subtle animated background shapes */
+        .background-shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: moveShapes 20s infinite linear;
+        }
+
+        /* Circle shapes */
+        .background-shape:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 25%;
+        }
+
+        .background-shape:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            top: 60%;
+            right: 20%;
+        }
+
+        .background-shape:nth-child(3) {
+            width: 180px;
+            height: 180px;
+            bottom: 10%;
+            left: 15%;
+        }
+
+        /* Ellipse shapes */
+        .background-ellipse {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: moveEllipse 25s infinite linear;
+        }
+
+        .background-ellipse:nth-child(4) {
+            width: 250px;
+            height: 150px;
+            top: 50%;
+            right: 15%;
+        }
+
+        .background-ellipse:nth-child(5) {
+            width: 300px;
+            height: 180px;
+            top: 30%;
+            left: 5%;
+        }
+
+        /* Rectangle shapes */
+        .background-rectangle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.2);
+            animation: moveRectangle 30s infinite linear;
+        }
+
+        .background-rectangle:nth-child(6) {
+            width: 300px;
+            height: 100px;
+            top: 20%;
+            left: 40%;
+        }
+
+        .background-rectangle:nth-child(7) {
+            width: 200px;
+            height: 80px;
+            bottom: 15%;
+            right: 10%;
+        }
+
+        /* Triangle shapes */
+        .background-triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 200px solid rgba(255, 255, 255, 0.2);
+            animation: moveTriangle 40s infinite linear;
+        }
+
+        .background-triangle:nth-child(8) {
+            top: 10%;
+            left: 50%;
+        }
+
+        /* Keyframes for movement of each shape */
+        @keyframes moveShapes {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(100px, 100px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes moveEllipse {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-150px, 200px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes moveRectangle {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(200px, 250px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes moveTriangle {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(150px, 150px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #3e2723; /* Dark brown */
+            padding: 15px 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 10;
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #d7c6a3; /* Light cream */
+        }
+
+        /* Header Section */
+        header {
+            background-color: rgba(215, 198, 163, 0.9); /* Creamy background with opacity */
+            color: #3e2723;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 90%;
+            z-index: 5;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            margin-top: 10px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            transition: opacity 0.5s ease-in-out;
+            position: relative;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            color: #3e2723;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #6f4f2f; /* Medium brown */
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        /* Feature Image Styling */
+        .feature-image {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Features Section - Feature Cards */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: #d7c6a3;
+            width: 280px;
+            height: 320px;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+            color: #3e2723;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            color: #6f4f2f;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #3e2723;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: #3e2723;
+            color: #d7c6a3;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            background-color: #d7c6a3;
+            color: #3e2723;
+            padding: 12px 30px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #f0e6b7;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Us Section */
+        .contact {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #3e2723;
+            color: #d7c6a3;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+
+        .contact p.email {
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #3e2723;
+            color: #d7c6a3;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Shapes -->
+<div class="background-shape"></div>
+<div class="background-shape"></div>
+<div class="background-shape"></div>
+
+<div class="background-ellipse"></div>
+<div class="background-ellipse"></div>
+
+<div class="background-rectangle"></div>
+<div class="background-rectangle"></div>
+
+<div class="background-triangle"></div>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About Us</a>
+</nav>
+
+<header>
+    <h1>Piano Learning Tool</h1>
+    <p>Helping beginners learn the piano with LED light cues!</p>
+</header>
+
+<section>
+    <h2>Introduction</h2>
+    <p>
+        The Piano Learning Tool is designed to assist keyboard and piano beginners in mastering their instrument. 
+        By using visual cues (simulated LED lights), learners are guided to play the correct keys at the right time. 
+        Whether you are a complete beginner or just need some extra help, this tool is perfect for accelerating your learning process.
+    </p>
+    <img class="feature-image" src="keyboard.jpg" alt="Piano Image">
+</section>
+
+<section>
+    <h2>How It Works</h2>
+    <p>
+        Our innovative tool uses a piano keyboard interface with visual LED cues that light up the correct keys to play. 
+        The learner follows these cues by clicking on the highlighted keys in sequence, helping to improve hand-eye coordination and memory. 
+        The tool also allows you to manually progress to the next note, offering a flexible learning experience.
+    </p>
+    <img class="feature-image" src="ledstrip.jpg" alt="LED Lights">
+</section>
+
+<section>
+    <h2>Features</h2>
+    <div class="features">
+        <div class="feature-card">
+            <h3>Interactive Piano Keys</h3>
+            <p>Click on the piano keys to practice the right notes. The keys light up to indicate the correct note to play.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Visual LED Cues</h3>
+            <p>Simulated LED lights highlight the correct keys to play, helping beginners to follow along easily.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Progress Tracking</h3>
+            <p>Keep track of your progress by advancing through lessons as you master each note.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>Get Started Today</h2>
+    <p>Begin your piano journey today with the Piano Learning Tool. Follow the LED cues, and start playing!</p>
+    <button class="cta-btn" onclick="window.location.href='tool.html'">Try It Now</button>
+</section>
+
+<section class="contact">
+    <h3>Contact Us</h3>
+    <p>If you have any questions or need support, feel free to reach out to us. We're here to help you on your piano learning journey!</p>
+    <p class="email">Email: support@pianolearningtool.com</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Piano Learning Tool. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

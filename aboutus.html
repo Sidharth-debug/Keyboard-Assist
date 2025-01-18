@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Inventors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #D7C6A3, #F0E6B7); /* Gradient background */
+            color: #3e2723; /* Dark brown text */
+            overflow-x: hidden;
+            box-sizing: border-box;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Subtle animated background shapes */
+        .background-shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: moveShapes 20s infinite linear;
+        }
+
+        /* Circle shapes */
+        .background-shape:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 25%;
+        }
+
+        .background-shape:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            top: 60%;
+            right: 20%;
+        }
+
+        .background-shape:nth-child(3) {
+            width: 180px;
+            height: 180px;
+            bottom: 10%;
+            left: 15%;
+        }
+
+        /* Ellipse shapes */
+        .background-ellipse {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: moveEllipse 25s infinite linear;
+        }
+
+        .background-ellipse:nth-child(4) {
+            width: 250px;
+            height: 150px;
+            top: 50%;
+            right: 15%;
+        }
+
+        .background-ellipse:nth-child(5) {
+            width: 300px;
+            height: 180px;
+            top: 30%;
+            left: 5%;
+        }
+
+        /* Rectangle shapes */
+        .background-rectangle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.2);
+            animation: moveRectangle 30s infinite linear;
+        }
+
+        .background-rectangle:nth-child(6) {
+            width: 300px;
+            height: 100px;
+            top: 20%;
+            left: 40%;
+        }
+
+        .background-rectangle:nth-child(7) {
+            width: 200px;
+            height: 80px;
+            bottom: 15%;
+            right: 10%;
+        }
+
+        /* Triangle shapes */
+        .background-triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 200px solid rgba(255, 255, 255, 0.2);
+            animation: moveTriangle 40s infinite linear;
+        }
+
+        .background-triangle:nth-child(8) {
+            top: 10%;
+            left: 50%;
+        }
+
+        /* Keyframes for movement of each shape */
+        @keyframes moveShapes {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(100px, 100px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes moveEllipse {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-150px, 200px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes moveRectangle {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(200px, 250px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes moveTriangle {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(150px, 150px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #3e2723; /* Dark brown */
+            padding: 15px 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 10;
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #d7c6a3; /* Light cream */
+        }
+
+        /* Header Section */
+        header {
+            background-color: rgba(215, 198, 163, 0.9); /* Creamy background with opacity */
+            color: #3e2723;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 90%;
+            z-index: 5;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            margin-top: 10px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            transition: opacity 0.5s ease-in-out;
+            position: relative;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            color: #3e2723;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #6f4f2f; /* Medium brown */
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        /* Team Members Section */
+        .team {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px; /* Reduced space between sections */
+            flex-wrap: wrap;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .team-member {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: #3e2723;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: #3e2723;
+            color: #d7c6a3;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: #d7c6a3;
+            color: #3e2723;
+            padding: 12px 30px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #f0e6b7;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3e2723;
+            color: #d7c6a3;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .team {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .cta-btn {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Shapes -->
+<div class="background-shape"></div>
+<div class="background-shape"></div>
+<div class="background-shape"></div>
+
+<div class="background-ellipse"></div>
+<div class="background-ellipse"></div>
+
+<div class="background-rectangle"></div>
+<div class="background-rectangle"></div>
+
+<div class="background-triangle"></div>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About the Inventors</a>
+</nav>
+
+<header>
+    <h1>About the Inventors</h1>
+    <p>Meet the passionate creators behind the Piano Learning Tool</p>
+</header>
+
+<section>
+    <h2>Our Story</h2>
+    <p>
+        We are a group of engineers and musicians who wanted to create an accessible tool to help beginners learn how to play the piano. 
+        After working together for months, we combined our skills in technology and music to develop the Piano Learning Tool. 
+        Our aim is to make learning the piano easier, more engaging, and fun!
+    </p>
+</section>
+
+<section>
+    <h2>Meet the Team</h2>
+    <div class="team">
+        <div class="team-member">
+            <img src="ethan.jpg" alt="Ethan Geo Vincent">
+            <h3>Ethan Geo Vincent</h3>
+        </div>
+        <div class="team-member">
+            <img src="joyal.jpg" alt="Joyal John Chako">
+            <h3>Joyal John Chako</h3>
+        </div>
+        <div class="team-member">
+            <img src="mishel.jpg" alt="Mishell Maria Martin">
+            <h3>Mishell Maria Martin</h3>
+        </div>
+        <div class="team-member">
+            <img src="sid.jpg" alt="Sidharth S">
+            <h3>Sidharth S</h3>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <h2>Contact Information</h2>
+    <p>If you'd like to get in touch with us, feel free to reach out!</p>
+    <p>Email: inventors@pianolearningtool.com</p>
+    <button class="cta-btn" onclick="window.location.href='tool.html'">Learn More About The Tool</button>
+</section>
+
+<footer>
+    <p>&copy; 2025 Piano Learning Tool. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
